@@ -1,0 +1,35 @@
+{
+  "name": "got-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devserver": "webpack-dev-server --debug --hot --output-pathinfo --watch --colors --inline --content-base public --port 8090 --host 0.0.0.0"
+  },
+  "author": "Daria Smirnova",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "*",
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "*",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "*",
+    "file-loader": "^0.11.2",
+    "json-loader": "^0.5.4",
+    "react-hot-loader": "^1.3.1",
+    "style-loader": "*",
+    "url-loader": "^0.5.6",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
