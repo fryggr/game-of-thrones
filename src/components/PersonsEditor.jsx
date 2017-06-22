@@ -1,22 +1,15 @@
 import React from 'react';
-import persons from './persons.json';
+// import persons from './persons.json';
 
 class PersonsEditor extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { persons };
-
-    this.handleSearchPerson = this.handleSearchPerson.bind(this);
-  }
   
   componentDidMount() {
-    let input = this.refs.input;
     this.select = this.refs.select;
-    input.oninput = this.handleSearchPerson;
-    alert(persons);
+    
   }
 
   handleSearchPerson(event) {
+
     let searchQuery = event.target.value.toLowerCase();
     
     let filterAllPersons = (obj) => {
@@ -43,25 +36,28 @@ class PersonsEditor extends React.Component {
     };
     
     if (this.select.value == 'all') {
-      var persons = this.state.persons.filter(filterAllPersons);
+      var persons = this.props.persons.filter(filterAllPersons);
+      console.log(`PersonsEditor: ${persons}`);
     }
     else {
-      persons = this.state.persons.filter(filterSelectPersons);
+      persons = this.props.persons.filter(filterSelectPersons);
+      console.log(`PersonsEditor: ${persons}`);
     }
     this.props.onSearchPerson(persons);
     
   }
     
   render() {
+    
     return (
       <div className="person-editor">
         <div className="row">
           <div className="input-field col s4">
-            <input type="text" name="tags" id="tags" placeholder="Поиск" ref="input"/>
+            <input type="text" name="tags" id="tags" placeholder="Поиск" onInput={this.handleSearchPerson.bind(this)} />
           </div>
             <div className="input-field col s4">
               <select ref="select">
-                <option value="all" selected="">Все поля</option>
+                <option value="all" defaultValue="">Все поля</option>
                 <option value="name">Имя персонажа</option>
                 <option value="description">Описание персонажа</option>
                 <option value="reason">Причина смерти</option>

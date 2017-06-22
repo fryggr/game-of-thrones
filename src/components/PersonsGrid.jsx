@@ -2,10 +2,12 @@ import React from 'react';
 import Person from './Person.jsx';
 
 class PersonsGrid extends React.Component {
-  
+
   render() {
     let onPersonDelete = this.props.onPersonDelete;
     let onPersonsSort = this.props.onPersonsSort;
+    console.log(`PersonsGrid: ${this.props.persons}`);
+    console.log(this.props.persons);
     return (
       <table className="bordered">
         <thead>

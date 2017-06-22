@@ -3,7 +3,7 @@ import React from 'react';
 import PersonsApp from './components/PersonsApp.jsx';
 
 ReactDOM.render(
-  <PersonsApp />,
+  <PersonsApp data="persons.json"/>,
   document.getElementById("mount-point")
   );
   
