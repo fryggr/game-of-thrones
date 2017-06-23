@@ -23,7 +23,7 @@ class PersonsApp extends React.Component {
   }
 
   loadData() {
-    load(this.props.data).then(persons => {
+    load(this.props.data, 'GET').then(persons => {
       this.initialData = JSON.parse(persons);
       this.setState({
         persons: this.initialData

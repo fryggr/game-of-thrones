@@ -7,7 +7,7 @@ class PersonsGrid extends React.Component {
     let onPersonDelete = this.props.onPersonDelete;
     let onPersonsSort = this.props.onPersonsSort;
     console.log(`PersonsGrid: ${this.props.persons}`);
-    console.log(this.props.persons);
+    // console.log(this.props.persons);
     return (
       <table className="bordered">
         <thead>

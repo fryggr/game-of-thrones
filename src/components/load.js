@@ -1,7 +1,7 @@
-export default url => {
+export default (url, type, data) => {
   return new Promise((success, fail) => {
     const request = new XMLHttpRequest();
-    request.open('GET', url, true);
+    request.open(type, url, true);
 
     request.addEventListener('load', () => {
       request.status >= 200 && request.status < 400
@@ -13,6 +13,8 @@ export default url => {
       fail(new Error('Network Error'));
     });
 
-    request.send();
+    type === 'GET' ? request.send() : request.send(data);
+
+    // request.send();
   });
 };
