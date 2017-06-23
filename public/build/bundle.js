@@ -9515,156 +9515,106 @@ module.exports = getIteratorFn;
 
 /***/ }),
 /* 81 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = [
-	{
-		"id": 1,
-		"name": "Робб Старк",
-		"description": "Старший сын лорда Эддарда Старка из Винтерфелла и его жены Кейтилин Старк. У него две сестры и два брата. После смерти Эддарда Старка, он стал лордом Винтерфелла, а позже был провозглашён королём Севера.",
-		"reason": "Сговор Уолдера Фрея с Тайвином Ланнистером  и Русе Болтоном.",
-		"killer": "Русе Болтон",
-		"weapon": "Меч"
-	},
-	{
-		"id": 2,
-		"name": "Эддард Старк",
-		"description": "Бывший глава великого дома Старков из Винтерфелла. Хранитель Севера, лорд Винтерфелла.",
-		"reason": "Публично признался в попытке захватить железный трон.",
-		"killer": "Илин Пейн",
-		"weapon": "Двуручный меч, который носит имя Лёд"
-	},
-	{
-		"id": 3,
-		"name": "Ренли Баратеон",
-		"description": "Младший брат короля Роберта, сын лорда Стеффонa Баратеона и Кассаны Эстермонт. После победы в восстании Роберт передал своему брату замок Штормовой Предел, таким образом сделав Ренли верховным лордом Штормовых Земель, а также сделал его мастером над законами в своем Малом Совете.",
-		"reason": "Отказ заключить мир со Станнисом",
-		"killer": "Станнис Баратеон",
-		"weapon": "Тень, порожденная красной жрицей Мелисандрой Асшайской"
-	},
-	{
-		"id": 4,
-		"name": "Игритт",
-		"description": "Девушка-одичалая, копьеносица в отряде Гремучей Рубашки, любовница Джона Сноу — и, по понятиям одичалых, жена.",
-		"reason": "Убийство Игритт отца Олли в деревне неподалеку от Чёрного замка",
-		"killer": "Олли - мальчишка из деревни на Севере",
-		"weapon": "Лук"
-	},
-	{
-		"id": 5,
-		"name": "Куорен Полурукий",
-		"description": "Брат Ночного Дозора, командир разведчиков Сумеречной Башни и ближайший помощник сира Дениса Маллистера.",
-		"reason": "Окруженный одичалыми, Куорен Полурукий ценой своей жизни помогает Джону Сноу, вступив с ним в поединок, обеспечивая ему тем самым доверие и авторитет среди них.",
-		"killer": "Джон Сноу",
-		"weapon": "Меч - Длинный Коготь"
-	},
-	{
-		"id": 6,
-		"name": "Джоффри Баратеон",
-		"description": "Сын короля Роберта Баратеона и его жены Серсеи Ланнистер, хотя настоящим его отцом является Джейме Ланнистер. После смерти Роберта Баратеона он взошёл на трон и стал править Семью Королевствами.",
-		"reason": "Жестокость Джоффри",
-		"killer": "Оленна Тирелл",
-		"weapon": "Отравленное вино"
-	},
-	{
-		"id": 7,
-		"name": "Бейлон Грейджой",
-		"description": "Бейлон Грейджой по прозвищу Смелый — глава дома Грейджоев, верховный лорд Железных Островов.",
-		"reason": "Эурон считал, что Бейлон слишком стар, его время прошло и теперь пора позволить править другим.",
-		"killer": "Эурон Грейджой",
-		"weapon": "Эурон столкнул брата с моста"
-	},
-	{
-		"id": 8,
-		"name": "Визерис Таргариен",
-		"description": "Самопровозглашенный Визерис III, сын короля Эйриса II Таргариена и королевы Рейлы Таргариен, брат Рейгара и Дейнерис Таргариен.",
-		"reason": "На пиру Визерис выпил лишнего и потребовал у Дрого воинов немедленно, иначе он вырежет из чрева Дени сына. Дрого в ответ короновал его расплавленным золотом.",
-		"killer": "Кхал Дрого",
-		"weapon": "Расплавленное золото"
-	}
-];
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PersonsGrid_jsx__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PersonAdd_jsx__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PersonsEditor_jsx__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__load_js__ = __webpack_require__(83);
 
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(17);
-var PersonsGrid = __webpack_require__(88);
-var PersonAdd = __webpack_require__(86);
-var PersonsEditor = __webpack_require__(87);
-var PERSONS = __webpack_require__(81);
 
-var PersonsApp = React.createClass({
-  displayName: 'PersonsApp',
 
-  getInitialState: function () {
-    return {
-      persons: PERSONS
-    };
-  },
+// import persons from './persons.json';
 
-  componentDidMount: function () {
+
+class PersonsApp extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.state = { persons: [] };
+
+    this.handleSort = this.handleSort.bind(this);
+    this.handlePersonDelete = this.handlePersonDelete.bind(this);
+    this.handleSearchPerson = this.handleSearchPerson.bind(this);
+    this.handleNoteAdd = this.handleNoteAdd.bind(this);
+
+    this.loadData();
+  }
+
+  componentDidMount() {
     this.sortVariable = false;
-  },
+  }
 
-  handlePersonDelete: function (person) {
-    var personId = person.id;
-    var newPersons = this.state.persons.filter(function (person) {
+  loadData() {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__load_js__["a" /* default */])(this.props.data, 'GET').then(persons => {
+      this.initialData = JSON.parse(persons);
+      this.setState({
+        persons: this.initialData
+      });
+    });
+  }
+
+  handlePersonDelete(person) {
+    let personId = person.id;
+    let newPersons = this.state.persons.filter(function (person) {
       return person.id !== personId;
     });
     this.setState({ persons: newPersons });
-  },
+  }
 
-  handleSearchPerson: function (query) {
+  handleSearchPerson(query) {
     this.setState({ persons: query });
-  },
+  }
 
-  handleNoteAdd: function (newPerson) {
-    var newPersons = this.state.persons.slice();
+  handleNoteAdd(newPerson) {
+    let newPersons = this.state.persons.slice();
     newPersons.unshift(newPerson);
     this.setState({ persons: newPersons });
-  },
+  }
 
-  handleSort: function (event) {
-    var sortQuery = event.target.getAttribute('data-type');
+  handleSort(event) {
+    let sortQuery = event.target.getAttribute('data-type');
 
-    var sortPersons = (a, b) => {
-      var key = sortQuery;
-      var rowA = a[key];
-      var rowB = b[key];
+    let sortPersons = (a, b) => {
+      let rowA = a[sortQuery];
+      let rowB = b[sortQuery];
       if (this.sortVariable) {
         if (rowA > rowB) return 1;else return -1;
       }
       if (rowA < rowB) return 1;else return -1;
     };
     this.sortVariable = !this.sortVariable;
-    var newPersons = this.state.persons.sort(sortPersons);
+    let newPersons = this.state.persons.sort(sortPersons);
     this.setState({ persons: newPersons });
-  },
+  }
 
-  render: function () {
-    return React.createElement(
+  render() {
+    console.log(`PersonsApp: ${this.state.persons}`);
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'notes-app' },
-      React.createElement(PersonsEditor, { persons: this.state.persons, onSearchPerson: this.handleSearchPerson }),
-      React.createElement(PersonAdd, { onNoteAdd: this.handleNoteAdd }),
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__PersonsEditor_jsx__["a" /* default */], { persons: this.initialData, onSearchPerson: this.handleSearchPerson }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__PersonAdd_jsx__["a" /* default */], { onNoteAdd: this.handleNoteAdd }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'row' },
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'col s12', id: 'container' },
-          React.createElement(PersonsGrid, { persons: this.state.persons, onPersonDelete: this.handlePersonDelete, onPersonsSort: this.handleSort })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__PersonsGrid_jsx__["a" /* default */], { persons: this.state.persons, onPersonDelete: this.handlePersonDelete, onPersonsSort: this.handleSort })
         )
       )
     );
   }
-});
+};
 
-module.exports = PersonsApp;
+/* harmony default export */ __webpack_exports__["a"] = (PersonsApp);
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9674,14 +9624,45 @@ module.exports = __webpack_require__(118);
 
 
 /***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ((url, type, data) => {
+  return new Promise((success, fail) => {
+    const request = new XMLHttpRequest();
+    request.open(type, url, true);
+
+    request.addEventListener('load', () => {
+      request.status >= 200 && request.status < 400 ? success(request.responseText) : fail(new Error(`Request Failed: ${request.statusText}`));
+    });
+
+    request.addEventListener('error', () => {
+      fail(new Error('Network Error'));
+    });
+
+    type === 'GET' ? request.send() : request.send(data);
+
+    // request.send();
+  });
+});
+
+/***/ }),
 /* 84 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var ReactDOM = __webpack_require__(83);
-var React = __webpack_require__(17);
-var PersonsApp = __webpack_require__(82);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_PersonsApp_jsx__ = __webpack_require__(81);
 
-ReactDOM.render(React.createElement(PersonsApp, null), document.getElementById("mount-point"));
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_PersonsApp_jsx__["a" /* default */], { data: 'persons.json' }), document.getElementById("mount-point"));
 
 $(function () {
   $('select').material_select();
@@ -9693,59 +9674,60 @@ $(function () {
 
 /***/ }),
 /* 85 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var React = __webpack_require__(17);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
-var Person = React.createClass({
-  displayName: "Person",
 
-  render: function () {
-    return React.createElement(
+class Person extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       "tr",
       null,
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "td",
         null,
         " ",
         this.props.name,
         " "
       ),
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "td",
         null,
         " ",
         this.props.description,
         " "
       ),
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "td",
         null,
         " ",
         this.props.reason,
         " "
       ),
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "td",
         null,
         " ",
         this.props.killer,
         " "
       ),
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "td",
         null,
         " ",
         this.props.weapon,
         " "
       ),
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "td",
         { className: "delete" },
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "a",
           { className: "btn-floating  grey lighten-1", onClick: this.props.onDelete },
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "i",
             { className: "material-icons" },
             "delete"
@@ -9754,73 +9736,143 @@ var Person = React.createClass({
       )
     );
   }
-});
+};
 
-module.exports = Person;
+/* harmony default export */ __webpack_exports__["a"] = (Person);
 
 /***/ }),
 /* 86 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var React = __webpack_require__(17);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
-var PersonAdd = React.createClass({
-  displayName: 'PersonAdd',
 
-  getInitialState: function () {
-    return {
-      name: ''
+class PersonAdd extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      queryName: '',
+      queryDescription: '',
+      queryReason: '',
+      queryKiller: '',
+      queryWeapon: ''
     };
-  },
 
-  handleTextChange: function (event) {
-    this.setState({ name: event.target.value });
-  },
+    this.handleTextChange = this.handleTextChange.bind(this);
+  }
 
-  handleNoteAdd: function (event) {
+  handleTextChange(event) {
+    const stateTarget = event.target.getAttribute("id");
+    this.setState({
+      [stateTarget]: event.target.value
+    });
+  }
+
+  handleNoteAdd(event) {
     var newPerson = {
-      name: this.state.name,
+      name: this.state.queryName,
       id: Date.now(),
-      description: '',
-      reason: '',
-      killer: '',
-      weapon: ''
+      description: this.state.queryDescription,
+      reason: this.state.queryReason,
+      killer: this.state.queryKiller,
+      weapon: this.state.queryWeapon
     };
     this.props.onNoteAdd(newPerson);
-    this.setState({ name: '' });
-  },
+    this.setState({
+      queryName: '',
+      queryDescription: '',
+      queryReason: '',
+      queryKiller: '',
+      queryWeapon: ''
+    });
+  }
 
-  render: function () {
-    return React.createElement(
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'row person-add' },
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'col s12' },
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'row' },
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'input-field col s6' },
-            React.createElement('input', {
+            { className: 'input-field col s4' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
               placeholder: '\u0418\u043C\u044F \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430',
               type: 'text',
               className: 'validate',
-              value: this.state.name,
-              onChange: this.handleTextChange
+              value: this.state.queryName,
+              id: 'queryName',
+              onChange: event => this.handleTextChange(event)
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'input-field col s8' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              placeholder: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430',
+              type: 'text',
+              className: 'validate',
+              value: this.state.queryDescription,
+              id: 'queryDescription',
+              onChange: event => this.handleTextChange(event)
             })
           )
         ),
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'row' },
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'input-field col s4' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              placeholder: '\u041F\u0440\u0438\u0447\u0438\u043D\u0430 \u0441\u043C\u0435\u0440\u0442\u0438',
+              type: 'text',
+              className: 'validate',
+              value: this.state.queryReason,
+              id: 'queryReason',
+              onChange: event => this.handleTextChange(event)
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'input-field col s4' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              placeholder: '\u041A\u0435\u043C \u0443\u0431\u0438\u0442',
+              type: 'text',
+              className: 'validate',
+              value: this.state.queryKiller,
+              id: 'queryKiller',
+              onChange: event => this.handleTextChange(event)
+            })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'input-field col s4' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+              placeholder: '\u041E\u0440\u0443\u0434\u0438\u0435 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u0430',
+              type: 'text',
+              className: 'validate',
+              value: this.state.queryWeapon,
+              id: 'queryWeapon',
+              onChange: event => this.handleTextChange(event)
+            })
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'row' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'input-field col s12' },
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'button',
-              { className: 'btn waves-effect waves-light', onClick: this.handleNoteAdd },
+              { className: 'btn waves-effect waves-light', onClick: event => this.handleNoteAdd(event) },
               '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C'
             )
           )
@@ -9828,39 +9880,34 @@ var PersonAdd = React.createClass({
       )
     );
   }
-});
+};
 
-module.exports = PersonAdd;
+/* harmony default export */ __webpack_exports__["a"] = (PersonAdd);
 
 /***/ }),
 /* 87 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var React = __webpack_require__(17);
-var PERSONS = __webpack_require__(81);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
-var PersonsEditor = React.createClass({
-  displayName: 'PersonsEditor',
+// import persons from './persons.json';
 
-  getInitialState: function () {
-    return {
-      displayedPersons: PERSONS
-    };
-  },
+class PersonsEditor extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
-  componentDidMount: function () {
-    var input = this.refs.input;
+  componentDidMount() {
     this.select = this.refs.select;
-    input.oninput = this.handleSearchPerson;
-  },
+  }
 
-  handleSearchPerson: function (event) {
-    var searchQuery = event.target.value.toLowerCase();
+  handleSearchPerson(event) {
 
-    function filterAllPersons(obj) {
-      var validEntries = false;
-      for (var key in obj) {
-        var searchValue = (obj[key] + '').toLowerCase();
+    let searchQuery = event.target.value.toLowerCase();
+
+    let filterAllPersons = obj => {
+      let validEntries = false;
+      for (let key in obj) {
+        let searchValue = (obj[key] + '').toLowerCase();
         if (searchValue.indexOf(searchQuery) !== -1) {
           validEntries = true;
           break;
@@ -9874,75 +9921,76 @@ var PersonsEditor = React.createClass({
       }
     };
 
-    var filterSelectPersons = obj => {
-      var select = this.select.value;
-      var searchValue = obj[select].toLowerCase();
+    let filterSelectPersons = obj => {
+      let searchValue = obj[this.select.value].toLowerCase();
       return searchValue.indexOf(searchQuery) !== -1;
     };
 
     if (this.select.value == 'all') {
-      var displayedPersons = PERSONS.filter(filterAllPersons);
+      var persons = this.props.persons.filter(filterAllPersons);
+      console.log(`PersonsEditor: ${persons}`);
     } else {
-      displayedPersons = PERSONS.filter(filterSelectPersons);
+      persons = this.props.persons.filter(filterSelectPersons);
+      console.log(`PersonsEditor: ${persons}`);
     }
+    this.props.onSearchPerson(persons);
+  }
 
-    this.props.onSearchPerson(displayedPersons);
-  },
+  render() {
 
-  render: function () {
-    return React.createElement(
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'person-editor' },
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'row' },
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'input-field col s4' },
-          React.createElement('input', { type: 'text', name: 'tags', id: 'tags', placeholder: '\u041F\u043E\u0438\u0441\u043A', ref: 'input' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'tags', id: 'tags', placeholder: '\u041F\u043E\u0438\u0441\u043A', onInput: this.handleSearchPerson.bind(this) })
         ),
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'input-field col s4' },
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'select',
             { ref: 'select' },
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'option',
-              { value: 'all', selected: '' },
+              { value: 'all', defaultValue: '' },
               '\u0412\u0441\u0435 \u043F\u043E\u043B\u044F'
             ),
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'option',
               { value: 'name' },
               '\u0418\u043C\u044F \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430'
             ),
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'option',
               { value: 'description' },
               '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430'
             ),
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'option',
               { value: 'reason' },
               '\u041F\u0440\u0438\u0447\u0438\u043D\u0430 \u0441\u043C\u0435\u0440\u0442\u0438'
             ),
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'option',
               { value: 'killer' },
               '\u041A\u0435\u043C \u0443\u0431\u0438\u0442'
             ),
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'option',
               { value: 'weapon' },
               '\u041E\u0440\u0443\u0434\u0438\u0435 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u0430'
             )
           )
         ),
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'input-field col s4' },
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'button',
             { className: 'btn waves-effect waves-light', type: 'button', id: 'add-person' },
             '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C\xA0\u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430'
@@ -9951,85 +9999,87 @@ var PersonsEditor = React.createClass({
       )
     );
   }
-});
+};
 
-module.exports = PersonsEditor;
+/* harmony default export */ __webpack_exports__["a"] = (PersonsEditor);
 
 /***/ }),
 /* 88 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var React = __webpack_require__(17);
-var Person = __webpack_require__(85);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Person_jsx__ = __webpack_require__(85);
 
-var PersonsGrid = React.createClass({
-  displayName: 'PersonsGrid',
 
 
-  render: function () {
-    var onPersonDelete = this.props.onPersonDelete;
-    var onPersonsSort = this.props.onPersonsSort;
-    return React.createElement(
+class PersonsGrid extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+
+  render() {
+    let onPersonDelete = this.props.onPersonDelete;
+    let onPersonsSort = this.props.onPersonsSort;
+    console.log(`PersonsGrid: ${this.props.persons}`);
+    // console.log(this.props.persons);
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'table',
       { className: 'bordered' },
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'thead',
         null,
-        React.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'tr',
           { onClick: onPersonsSort },
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'th',
             { 'data-type': 'name' },
             '\u0418\u043C\u044F \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430'
           ),
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'th',
             { 'data-type': 'description' },
             '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430'
           ),
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'th',
             { 'data-type': 'reason' },
             '\u041F\u0440\u0438\u0447\u0438\u043D\u0430 \u0441\u043C\u0435\u0440\u0442\u0438'
           ),
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'th',
             { 'data-type': 'killer' },
             '\u041A\u0435\u043C \u0443\u0431\u0438\u0442'
           ),
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'th',
             { 'data-type': 'weapon' },
             '\u041E\u0440\u0443\u0434\u0438\u0435 \u0443\u0431\u0438\u0439\u0441\u0442\u0432\u0430'
           ),
-          React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'th',
             null,
             '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430'
           )
         )
       ),
-      React.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'tbody',
         null,
-        this.props.persons.map(function (el) {
-          return React.createElement(Person, {
-            key: el.id,
-            name: el.name,
-            description: el.description,
-            reason: el.reason,
-            killer: el.killer,
-            weapon: el.weapon,
-            onDelete: onPersonDelete.bind(null, el)
-          });
-        })
+        this.props.persons.map(el => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Person_jsx__["a" /* default */], {
+          key: el.id,
+          name: el.name,
+          description: el.description,
+          reason: el.reason,
+          killer: el.killer,
+          weapon: el.weapon,
+          onDelete: onPersonDelete.bind(null, el)
+        }))
       )
     );
   }
-});
+};
 
-module.exports = PersonsGrid;
+/* harmony default export */ __webpack_exports__["a"] = (PersonsGrid);
 
 /***/ }),
 /* 89 */
