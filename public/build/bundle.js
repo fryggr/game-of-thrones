@@ -9558,8 +9558,8 @@ class PersonsApp extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
   }
 
   handlePersonDelete(person) {
-    let personId = person.id;
-    let newPersons = this.state.persons.filter(function (person) {
+    const personId = person.id;
+    const newPersons = this.state.persons.filter(function (person) {
       return person.id !== personId;
     });
     this.setState({ persons: newPersons });
@@ -9570,29 +9570,30 @@ class PersonsApp extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
   }
 
   handleNoteAdd(newPerson) {
-    let newPersons = this.state.persons.slice();
+    const newPersons = this.state.persons.slice();
     newPersons.unshift(newPerson);
     this.setState({ persons: newPersons });
   }
 
   handleSort(event) {
-    let sortQuery = event.target.getAttribute('data-type');
+    const sortQuery = event.target.getAttribute('data-type');
+    let direction = this.sortVariable ? 1 : -1;
 
-    let sortPersons = (a, b) => {
-      let rowA = a[sortQuery];
-      let rowB = b[sortQuery];
-      if (this.sortVariable) {
-        if (rowA > rowB) return 1;else return -1;
+    const sortPersons = (a, b) => {
+      if (a[sortQuery] === b[sortQuery]) {
+        return 0;
       }
-      if (rowA < rowB) return 1;else return -1;
+      return a[sortQuery] > b[sortQuery] ? direction : direction * -1;
     };
+
     this.sortVariable = !this.sortVariable;
-    let newPersons = this.state.persons.sort(sortPersons);
+
+    const newPersons = this.state.persons.sort(sortPersons);
     this.setState({ persons: newPersons });
   }
 
   render() {
-    console.log(`PersonsApp: ${this.state.persons}`);
+    // console.log(`PersonsApp: ${this.state.persons}`);
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'notes-app' },
@@ -9771,7 +9772,7 @@ class PersonAdd extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
   }
 
   handleNoteAdd(event) {
-    var newPerson = {
+    const newPerson = {
       name: this.state.queryName,
       id: Date.now(),
       description: this.state.queryDescription,
@@ -9902,38 +9903,22 @@ class PersonsEditor extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
 
   handleSearchPerson(event) {
 
-    let searchQuery = event.target.value.toLowerCase();
+    const searchQuery = event.target.value.toLowerCase();
 
-    let filterAllPersons = obj => {
-      let validEntries = false;
-      for (let key in obj) {
-        let searchValue = (obj[key] + '').toLowerCase();
-        if (searchValue.indexOf(searchQuery) !== -1) {
-          validEntries = true;
-          break;
-        }
-      };
-      if (validEntries == true) {
-        validEntries = false;
-        return true;
-      } else {
-        return false;
-      }
+    const filterAllPersons = obj => {
+      return Object.keys(obj).some(key => {
+        const searchValue = (obj[key] + '').toLowerCase();
+        return searchValue.includes(searchQuery);
+      });
     };
 
-    let filterSelectPersons = obj => {
-      let searchValue = obj[this.select.value].toLowerCase();
-      return searchValue.indexOf(searchQuery) !== -1;
+    const filterSelectPersons = obj => {
+      return obj[this.select.value].toLowerCase().includes(searchQuery);
     };
 
-    if (this.select.value == 'all') {
-      var persons = this.props.persons.filter(filterAllPersons);
-      console.log(`PersonsEditor: ${persons}`);
-    } else {
-      persons = this.props.persons.filter(filterSelectPersons);
-      console.log(`PersonsEditor: ${persons}`);
-    }
-    this.props.onSearchPerson(persons);
+    this.select.value == 'all' ? this.persons = this.props.persons.filter(filterAllPersons) : this.persons = this.props.persons.filter(filterSelectPersons);
+
+    this.props.onSearchPerson(this.persons);
   }
 
   render() {
@@ -9947,7 +9932,7 @@ class PersonsEditor extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'input-field col s4' },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'tags', id: 'tags', placeholder: '\u041F\u043E\u0438\u0441\u043A', onInput: this.handleSearchPerson.bind(this) })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', placeholder: '\u041F\u043E\u0438\u0441\u043A', onChange: this.handleSearchPerson.bind(this) })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
@@ -10017,9 +10002,9 @@ class PersonsEditor extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
 class PersonsGrid extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
-    let onPersonDelete = this.props.onPersonDelete;
-    let onPersonsSort = this.props.onPersonsSort;
-    console.log(`PersonsGrid: ${this.props.persons}`);
+    const onPersonDelete = this.props.onPersonDelete;
+    const onPersonsSort = this.props.onPersonsSort;
+    // console.log(`PersonsGrid: ${this.props.persons}`);
     // console.log(this.props.persons);
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'table',

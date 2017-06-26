@@ -22,7 +22,7 @@ class PersonAdd extends React.Component {
   }
   
   handleNoteAdd(event) {
-    var newPerson = {
+    const newPerson = {
       name: this.state.queryName,
       id: Date.now(),
       description: this.state.queryDescription,

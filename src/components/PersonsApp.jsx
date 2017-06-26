@@ -32,8 +32,8 @@ class PersonsApp extends React.Component {
   }
 
   handlePersonDelete(person) {
-    let personId = person.id;
-    let newPersons = this.state.persons.filter(function(person) {
+    const personId = person.id;
+    const newPersons = this.state.persons.filter(function(person) {
         return person.id !== personId;
     });
     this.setState({ persons: newPersons });
@@ -44,31 +44,28 @@ class PersonsApp extends React.Component {
   }
     
   handleNoteAdd(newPerson) {
-    let newPersons = this.state.persons.slice();
+    const newPersons = this.state.persons.slice();
     newPersons.unshift(newPerson);
     this.setState({ persons: newPersons });
   }
   
   handleSort(event) {
-    let sortQuery = event.target.getAttribute('data-type');
+    const sortQuery = event.target.getAttribute('data-type');
+    let direction = this.sortVariable ? 1 : -1;
 
-    let sortPersons = (a, b) => {
-        let rowA = a[sortQuery];
-        let rowB = b[sortQuery];
-      if (this.sortVariable) {
-        if (rowA > rowB) return 1
-        else return -1;
-      }
-      if (rowA < rowB) return 1
-      else return -1;
+    const sortPersons = (a, b) => {
+      if (a[sortQuery] === b[sortQuery]) { return 0; }
+      return a[sortQuery] > b[sortQuery] ? direction : direction * -1;
     };
+    
     this.sortVariable = !this.sortVariable;
-    let newPersons = this.state.persons.sort(sortPersons);
+
+    const newPersons = this.state.persons.sort(sortPersons);
     this.setState({ persons: newPersons });
   }
   
   render() {
-    console.log(`PersonsApp: ${this.state.persons}`);
+    // console.log(`PersonsApp: ${this.state.persons}`);
     return (
       <div className="notes-app">
         <PersonsEditor persons={this.initialData} onSearchPerson={this.handleSearchPerson}/>

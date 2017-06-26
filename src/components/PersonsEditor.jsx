@@ -4,46 +4,29 @@ import React from 'react';
 class PersonsEditor extends React.Component {
   
   componentDidMount() {
-    this.select = this.refs.select;
-    
+    this.select = this.refs.select;    
   }
 
   handleSearchPerson(event) {
 
-    let searchQuery = event.target.value.toLowerCase();
+    const searchQuery = event.target.value.toLowerCase();
     
-    let filterAllPersons = (obj) => {
-      let validEntries = false;
-      for (let key in obj) {
-        let searchValue = (obj[key]+'').toLowerCase();
-        if (searchValue.indexOf(searchQuery) !== -1) {
-          validEntries = true;
-          break;
-        } 
-      };
-      if (validEntries == true) {
-        validEntries = false;
-        return true;
-      }
-      else {
-        return false;
-      }
+    const filterAllPersons = (obj) => {
+      return Object.keys(obj).some((key) => {
+        const searchValue = (obj[key]+'').toLowerCase();
+        return searchValue.includes(searchQuery);
+      });
     };
     
-    let filterSelectPersons = (obj) => {
-      let searchValue = obj[this.select.value].toLowerCase();
-      return searchValue.indexOf(searchQuery) !== -1;
+    const filterSelectPersons = (obj) => {
+      return obj[this.select.value].toLowerCase().includes(searchQuery);
     };
     
-    if (this.select.value == 'all') {
-      var persons = this.props.persons.filter(filterAllPersons);
-      console.log(`PersonsEditor: ${persons}`);
-    }
-    else {
-      persons = this.props.persons.filter(filterSelectPersons);
-      console.log(`PersonsEditor: ${persons}`);
-    }
-    this.props.onSearchPerson(persons);
+    this.select.value == 'all' 
+      ? this.persons = this.props.persons.filter(filterAllPersons)
+      : this.persons = this.props.persons.filter(filterSelectPersons)
+    
+    this.props.onSearchPerson(this.persons);
     
   }
     
@@ -53,7 +36,7 @@ class PersonsEditor extends React.Component {
       <div className="person-editor">
         <div className="row">
           <div className="input-field col s4">
-            <input type="text" name="tags" id="tags" placeholder="Поиск" onInput={this.handleSearchPerson.bind(this)} />
+            <input type="text" placeholder="Поиск" onChange={this.handleSearchPerson.bind(this)} />
           </div>
             <div className="input-field col s4">
               <select ref="select">
